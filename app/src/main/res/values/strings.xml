@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Shopping List</string>
+    <string name="appbar_title">Einkaufsliste</string>
+    <string name="back">Zurück</string>
+</resources>
