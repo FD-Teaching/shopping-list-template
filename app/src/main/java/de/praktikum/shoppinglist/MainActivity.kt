@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -68,9 +68,9 @@ fun ShoppingList(items: List<ShoppingListItem>, modifier: Modifier) {
     val currentItemId = remember { mutableIntStateOf(0) }
 
     LazyColumn(modifier) {
-        items(items){ item ->
+        itemsIndexed(items){ index, item ->
             ShoppingItemView(item, onItemClick = {
-                currentItemId.intValue = item.id
+                currentItemId.intValue = index
                 openAlertDialog.value = true
             })
         }
@@ -119,7 +119,7 @@ fun DetailItemDialog(item: ShoppingListItem, onConfirmation: () -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ShoppingListPreview() {
     ShoppingListTheme {
         val items = listOf(
             ShoppingListItem(0,"Äpfel", "1kg", R.drawable.apples),
