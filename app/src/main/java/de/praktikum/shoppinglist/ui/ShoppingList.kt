@@ -22,7 +22,7 @@ fun ShoppingList(items: List<ShoppingListItem>,
         itemsIndexed(items){ index, item ->
             // Each item is packed into a SwipeToDismissBox, implemented in the SwipeToDismissListItem composable
             SwipeToDismissListItem(
-                modifier = Modifier.animateItemPlacement(),
+                modifier = Modifier.animateItem(),
                 onEndToStart = {
                     removeShoppingListItem(item.id)
                 }
